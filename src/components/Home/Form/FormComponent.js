@@ -10,11 +10,13 @@ class FormComponent extends Component {
 
 	this.state = {
 		email: "",
-		message: "",
-		fullname: "",
+		address: "",
+		amount: "",
 	}
 
 	this.handleInputChange = this.handleInputChange.bind(this);
+	// cambiar site_url dependiendo el entorno
+	this.url = 'http://localhost:8000'+'/api/v1/checkoutmodel/'
   }
 
   handleInputChange(event) {
@@ -28,7 +30,7 @@ class FormComponent extends Component {
   }
 
   canSend() {
-  	return this.state.email !== "" && this.state.message !== "" && this.state.fullname !== "";
+  	return this.state.email !== "" && this.state.address !== "" && this.state.amount !== "";
   }
 
   sendEmail() {
@@ -43,6 +45,19 @@ class FormComponent extends Component {
 		});
   }
 
+  submitForm() {
+  	  	FetchUtil.post(this.url, {
+  	  		amount: this.state.amount,
+            address: this.state.address,
+  	  		email: this.state.email
+  	  	})
+		.then(res =>  {
+			console.log("res", res)
+			if (res) return alert("ok");
+			return alert("error");
+		});
+  }
+
   render() {
     return (
       <div className="contact__email">
@@ -54,8 +69,8 @@ class FormComponent extends Component {
 	      	<div className="contact__email__form__container">
 		      	<div className="contact__email__form__group">
 		      		<label className="contact__email__form__label" htmlFor="fullname"> Amount </label>
-		      		<input className="contact__email__form__input" type="text" name="fullname" 
-		      			   onChange={this.handleInputChange} value={this.state.fullname}
+		      		<input className="contact__email__form__input" type="text" name="amount" 
+		      			   onChange={this.handleInputChange} value={this.state.amount}
 		      		/>
 		      	</div>
 
@@ -68,12 +83,12 @@ class FormComponent extends Component {
 
 		      	<div className="contact__email__form__group--full">
 		      		<label className="contact__email__form__label" htmlFor="message"> Address </label>
-		      		<textarea rows="3" name="message" className="contact__email__form__input--full"
-		      				  onChange={this.handleInputChange} value={this.state.message}
+		      		<input className="contact__email__form__input--full" type="text" name="address" 
+		      				  onChange={this.handleInputChange} value={this.state.address}
 		      		/>
 		      	</div>
 
-		      	<button className="contact__email__btn" disabled={!this.canSend()} onClick={e => this.sendEmail()}>
+		      	<button className="contact__email__btn" disabled={!this.canSend()} onClick={e => this.submitForm()}>
 		      		<span className="btn__title"> SEND </span>
 		      	</button>
 	      	</div>
