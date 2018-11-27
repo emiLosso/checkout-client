@@ -1,0 +1,51 @@
+
+.screen {
+	margin: 0 auto;
+}
+
+.footer {
+	@extend .--full-width;
+}
+
+.nav {
+	@extend .--full-width;
+	text-align: center;
+
+	&__links {
+		@extend .--inline-block;
+		position: absolute;
+		left: 7rem;
+		top: 1.75rem;
+	}
+
+	&__logo {
+		@extend .--inline-block;
+		margin-top: 0.55rem;
+
+		&__img {
+			width: 7rem;
+			height: 5rem;
+			object-fit: contain;
+			cursor: pointer;
+		}
+	}
+
+	&__link {
+		text-decoration: none !important;
+		font-family: Poppins;
+		margin-right: 15px;
+		font-size: 14px;
+		font-weight: 600;
+		font-style: normal;
+		font-stretch: normal;
+		line-height: normal;
+		letter-spacing: 0.6px;
+		text-align: left;
+		color: #000000;
+
+		&:hover {
+			transition: 0.5s;
+			color: $sky-blue;
+		}
+	}
+}

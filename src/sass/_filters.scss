@@ -1,0 +1,28 @@
+.filters {
+	display: grid;
+	grid-area: 1;
+	text-align: center;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: auto;
+	border-bottom: solid 1px #d6d8e5;
+
+	&__title {
+		grid-area: 1;
+		text-align: center;
+		width: 555px;
+		height: 51px;
+		margin: 0 auto;
+	    margin-top: 132px;
+		@include Text-Style;
+	}
+
+	&__container {
+		grid-area: 2;
+		text-align: center;
+	}
+
+	&__img {
+		margin: 0 auto;
+		margin-top: 3rem;
+	}
+}

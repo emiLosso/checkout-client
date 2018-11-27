@@ -1,0 +1,306 @@
+.base-container {
+	font-family: Poppins;
+  background-color: #a0a0a0;
+}
+
+/*  
+    Common States
+*/
+
+.--white {
+  color: white;
+}
+
+.--flex {
+  display: flex;
+}
+
+.--flex-wrap {
+  flex-wrap: wrap;
+}
+
+.--flex-no-shrink {
+  flex-shrink: 0;
+}
+
+.--items-center {
+  align-items: center;
+}
+
+.--justify-between {
+  justify-content: space-between;
+}
+
+.--inline-block {
+	display: inline-block;
+}
+
+.--inline {
+  display: inline;
+}
+
+.--relative {
+	display:relative;
+}
+
+.--block {
+	display: block;
+}
+
+.--right {
+	float:right !important;
+}
+
+.--left {
+	float:left !important;
+}
+
+.--centered {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.--uppercase {
+    text-transform: uppercase;
+}
+
+.--lowercase {
+    text-transform: lowercase;
+}
+
+.--hidden {
+	display:none !important;
+}
+
+.--full-height {
+    height: 100vh;
+}
+
+.--full-width {
+    width: 100%;
+}
+
+.--rounded-full {
+    border-radius: 9999px;
+}
+
+.--shadow {
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+
+/* 
+    Custom Input radios 
+*/
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: $powder-blue;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+/* 
+    Custom Scrollbar
+*/
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    // background-clip: padding-box; // Uncomment this line for non-visible scrollbar
+    -webkit-border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+/* Balloon CSS Tooltips */
+
+[data-balloon]:after {
+  font-size: 1rem !important;
+  color: white;
+  background-color: $light-navy;
+  @include Text-Style;
+}
+
+[data-balloon][data-balloon-pos='right']:before {
+  background-color: white !important;
+}
+
+/* Custom CSS of Select */
+
+/*the container must be positioned relative:*/
+.custom-select {
+  width: 213px;
+  height: 48px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fbfbfb;
+  border: solid 0.5px #a3a3a3;
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+.select-selected {
+  background-color: #fbfbfb;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  border-radius: 0.3px;
+  top: 20px;
+  right: 12px;
+  border: 10px solid transparent;
+  border-color: #000000 transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #000000 transparent;
+  top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-selected {
+  margin-right: 50px;
+  margin-left: 10px;
+  margin-top: 12px;
+  cursor: pointer;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #888888;
+}
+
+.select-items div {
+  cursor: pointer;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #888888;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  padding: 1rem;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #fbfbfb;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #888888;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+.select-items div:hover, .same-as-selected {
+  transition: 0.3s;
+  color: black !important;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Custom BTN */
+
+.btn {
+  width: 150px;
+  height: 50px;
+  background-color: $dark-indigo;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  top: 3px;
+
+  &:disabled {
+    background-color: grey !important;
+    color: white;
+  }
+
+  &:hover {
+    transition: 0.5s;
+    background-color: #61a7ff;
+  }
+
+  &__title {
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+  }
+}
+
+input[type=text], input[type=email], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, input[type=email]:focus, textarea:focus {
+  box-shadow: 0 0 5px #0363ff;
+  border: 1px solid #0363ff;
+}

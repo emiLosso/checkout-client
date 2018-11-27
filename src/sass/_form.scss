@@ -1,0 +1,110 @@
+%input {
+	width: 100%;
+	background-color: #fbfbfb;
+	border: solid 0.5px #a3a3a3;
+	height: 30px;
+	padding: 10px;
+	font-size: 20px;
+	font-family: Poppins-Light;
+	font-size: 13px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: 0.5px;
+	text-align: left;
+	color: #888888;
+}
+
+
+.contact {
+	display: grid;
+	grid-area: 4;
+	text-align: center;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+
+	&__email {
+		grid-area: 1 / 1;
+
+		&__btn {
+			@extend .btn;
+			width: 223px !important;
+			height: 48px !important;
+			margin-top: 26px;
+			margin-left: 65%;
+		}
+
+		&__form {
+			background-color: blue;
+			height: 21em;
+  			width: 40em;
+			margin: 0 auto;
+			border-right: 1px solid #e8e8e8;
+			
+			&__container {
+				width: 579px;
+				margin: 0 auto;
+			}
+
+			&__group {
+				@extend .--inline-block;
+				width: 270px;
+				margin-bottom: 28px;
+
+				&:first-child {
+					margin-right: 35px;
+				}
+
+				&--full {
+					@extend .--full-width;
+				}
+			}
+
+			&__input {
+				@extend %input;
+
+				&--full {
+					@extend %input;
+					height: 95px;
+				}
+			}
+
+			&__label {
+				@extend .--block;
+				width: 57px;
+				height: 19px;
+				font-family: Poppins;
+				font-size: 13px;
+				font-weight: 500;
+				font-style: normal;
+				font-stretch: normal;
+				line-height: normal;
+				letter-spacing: 0.5px;
+				text-align: left;
+				color: #b2b5e8;
+				margin-bottom: 8px;
+			}
+
+			&__title {
+				margin: 0 auto;
+				margin-top: 123px;
+				/*width: 172px;*/
+				height: 48px;
+				font-family: Poppins;
+				font-size: 25px;
+				font-weight: 600;
+				font-style: normal;
+				font-stretch: normal;
+				line-height: 1.92;
+				letter-spacing: 0.4px;
+				text-align: center;
+				color: #ffff;
+			}
+		}
+	}
+
+	&__contact {
+		grid-area: 2 / 1;
+	}
+}

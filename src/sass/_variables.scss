@@ -1,0 +1,38 @@
+// Variables
+
+/* Color palette */
+
+$powder-blue: #bedaff;
+$sky-blue: #61a7ff;
+$bright-blue: #0163ff;
+$dark-indigo: #122560;
+$light-navy: #142761;
+
+/* Text styles */
+
+@mixin Text-Style {
+  font-family: Poppins;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: $light-navy;
+}
+
+@mixin Text-Style-2 {
+  font-family: Poppins;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: $light-navy;
+}
+
+@mixin Text-Style-3 {
+  font-family: Poppins;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #ffffff;
+}
