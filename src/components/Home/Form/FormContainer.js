@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import EmailComponent from './FormComponent';
+import FormComponent from './FormComponent';
 
 
 class FormContainer extends Component {
   render() {
     return (
       <div className="form">
-      	<EmailComponent />
+      	<FormComponent />
       </div>
     );
   }

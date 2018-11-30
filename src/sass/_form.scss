@@ -17,7 +17,7 @@
 }
 
 
-.contact {
+.checkout {
 	display: grid;
 	grid-area: 4;
 	text-align: center;
@@ -104,7 +104,7 @@
 		}
 	}
 
-	&__contact {
+	&__checkout {
 		grid-area: 2 / 1;
 	}
 }

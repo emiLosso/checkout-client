@@ -1,12 +1,11 @@
-const baseApiUrl = `/catalog/api/`;
-const baseNewsletterApiUrl = `/newsletter/`;
+const baseApiUrl = `http://localhost:8000`;
+// Prod
+// const baseApiUrl = `https://www.ripio.com`;
 
 const Constants = {
     apiUrls: {
-    	brands: _ => `${baseApiUrl}brands/`,
-    	subscribe: _=> `${baseNewsletterApiUrl}subscribe/`,
-    	unsubscribe: _=> `${baseNewsletterApiUrl}unsubscribe/`,
-    	models: brandId => `${baseApiUrl}models/?brand__id=${brandId}`,
+    	// ripio endpoint process checkout
+    	process_checkout: _ => `${baseApiUrl}/api/v1/checkoutmodel/`,
     },
 };
 
