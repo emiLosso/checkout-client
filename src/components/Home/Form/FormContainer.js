@@ -4,10 +4,19 @@ import FormComponent from './FormComponent';
 
 
 class FormContainer extends Component {
+
+  constructor(props) {
+	super(props);
+  }
+
   render() {
     return (
       <div className="form">
-      	<FormComponent />
+      	<FormComponent 
+  			amount= {this.props.amount}
+  			currency= {this.props.currency}
+  			address= {this.props.address}
+      	/>
       </div>
     );
   }

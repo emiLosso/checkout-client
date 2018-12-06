@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Router, IndexRoute, hashHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+// import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-
-import Nav from '../Nav/Nav';
 import HomeContainer from '../Home/HomeContainer';
-import UnsubscribeContainer from '../Unsubscribe/UnsubscribeContainer';
 
 import ErrorHandler from '../../libs/errors/error-handler.js';
 import MessageUtil from '../../libs/utils/MessageUtil.js';
@@ -31,10 +29,10 @@ class App extends Component {
   render() {
     return (
       <div className="base-container">
-        <Router history={hashHistory}>
-          <Route path="/" component={HomeContainer}>
-             <Route path="unsubscribe" component={UnsubscribeContainer} /> 
-          </Route>
+        <Router>
+          <div>
+            <Route path="/form/:amount/:currency/:address" component={HomeContainer} />
+          </div>
         </Router>
         <Footer />
       </div>

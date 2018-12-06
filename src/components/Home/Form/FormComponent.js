@@ -4,6 +4,9 @@ import PubSub from 'pubsub-js';
 import FetchUtil from '../../../libs/utils/FetchUtil.js';
 import Constants from '../../../constants.js';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 class FormComponent extends Component {
 
   constructor(props) {
@@ -11,8 +14,9 @@ class FormComponent extends Component {
 
 	this.state = {
 		email: "",
-		address: "",
-		amount: "",
+		amount: this.props.amount,
+		currency: this.props.currency,
+		address: this.props.address,
 	}
 
 	this.handleInputChange = this.handleInputChange.bind(this);
@@ -38,12 +42,17 @@ class FormComponent extends Component {
   	  	FetchUtil.post(this.url, {
   	  		amount: this.state.amount,
             address: this.state.address,
-  	  		email: this.state.email
+  	  		email: this.state.email,
+  	  		currency: this.state.currency,
   	  	})
 		.then(res =>  {
 			console.log("res", res)
-			if (res) return alert("An email has been sent to your account - " + res['email']);
-			return alert("error");
+			if (res) return toast.success("An email has been sent to your account - " + res['email'], {
+        						position: toast.POSITION.TOP_CENTER
+      						});
+	      	toast.error("Error", {
+	        	position: toast.POSITION.TOP_CENTER
+	      	});
 		});
   }
 
@@ -82,6 +91,7 @@ class FormComponent extends Component {
 		      	</button>
 	      	</div>
       	</div>
+      	<ToastContainer />
       </div>
     );
   }
